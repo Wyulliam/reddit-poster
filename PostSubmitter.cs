@@ -10,9 +10,9 @@ namespace RedditPoster
         private static int count = 1;
         public async static Task Submit(string token, string imageUrl)
         {
-            var title = $"Testing image upload before token expire #{count}";
+            var title = Parameters.PostTitle;
             var image = imageUrl;
-            var subreddit = "africatotomemes";
+            var subreddit = Parameters.Subredit;
             var client =
                 new RestClient(
                     "https://oauth.reddit.com/api/submit?resubmit=true&redditWebClient=desktop2x&app=desktop2x-client-production&rtj=only&raw_json=1&gilding_detail=1");
@@ -50,7 +50,7 @@ namespace RedditPoster
                 "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\n" +
                 "Content-Disposition: form-data; name=\"richtext_json\"\r\n" +
                 "\r\n" +
-                "{\"document\":[{\"e\":\"par\",\"c\":[{\"e\":\"text\",\"t\":\"A\"}]}]}" +
+                "{\"document\":[{\"e\":\"par\",\"c\":[{\"e\":\"text\",\"t\":\""+Parameters.PostTitle+"\"}]}]}" +
                 "\r\n" +
                 "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\n" +
                 "Content-Disposition: form-data; name=\"validate_on_submit\"\r\n" +

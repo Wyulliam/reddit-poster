@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using RestSharp;
 
 namespace RedditPoster
 {
@@ -7,15 +8,24 @@ namespace RedditPoster
     {
         static async Task Main(string[] args)
         {
+            Console.WriteLine("What is the subreddit?");
+            Parameters.Subredit = Console.ReadLine();
+
+            Console.WriteLine("What is the next count? (Last post number)");
+            Parameters.PostCount = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("(Your folder path need a folder called 'not posted' and a folder called 'posted'");
+            Console.WriteLine("What is the folder path?");
+            Parameters.FolderPath = Console.ReadLine();
+
             while (true)
             {
-                var folderPath = @"C:\Users\william.da.silva\Documents\test";
-
-                var nextImage = await ImageSelector.FirstImage(folderPath);
+                var nextImage = await ImageSelector.FirstImage(Parameters.FolderPath);
 
                 if (nextImage == null)
                 {
                     Console.WriteLine("There was no next image");
+                    Console.ReadLine();
                     return;
                 }
 

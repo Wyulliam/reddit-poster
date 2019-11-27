@@ -17,7 +17,7 @@ namespace RedditPoster
             {
                 image = Convert.ToBase64String(File.ReadAllBytes(filePath)),
                 title = $"Test #{DateTime.Now:MMddHHmmss} - Test Bot",
-                description = "This image was uploaded by a bot",
+                description = "Enjoy the movie",
                 type = "base64"
             };
             
