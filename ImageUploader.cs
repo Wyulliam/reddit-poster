@@ -16,7 +16,7 @@ namespace RedditPoster
             var imageRequest = new ImgurImageRequest()
             {
                 image = Convert.ToBase64String(File.ReadAllBytes(filePath)),
-                title = $"Test #{DateTime.Now:MMddHHmmss} - Test Bot",
+                title = Parameters.PostTitle,
                 description = "Enjoy the movie",
                 type = "base64"
             };

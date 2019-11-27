@@ -20,7 +20,7 @@ namespace RedditPoster
 
             while (true)
             {
-                var nextImage = await ImageSelector.FirstImage(Parameters.FolderPath);
+                var nextImage = await ImageSelector.FirstImage();
 
                 if (nextImage == null)
                 {

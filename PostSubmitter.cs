@@ -7,7 +7,6 @@ namespace RedditPoster
 {
     static class PostSubmitter
     {
-        private static int count = 1;
         public async static Task Submit(string token, string imageUrl)
         {
             var title = Parameters.PostTitle;
@@ -65,8 +64,8 @@ namespace RedditPoster
 
             dynamic responseText = JsonConvert.DeserializeObject(response.Content);
 
-            Console.WriteLine($"Resultado post {count}. Hora: {DateTime.Now.ToLongTimeString()}. Erro: {responseText}");
-            count++;
+            Console.WriteLine($"Resultado post {Parameters.PostCount}. Hora: {DateTime.Now.ToLongTimeString()}. Erro: {responseText}");
+            Parameters.PostCount++;
         }
     }
 }
