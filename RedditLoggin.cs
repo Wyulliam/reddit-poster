@@ -5,7 +5,7 @@ using RestSharp;
 
 namespace RedditPoster
 {
-    static class LoginMannager
+    static class RedditLoggin
     {
         public async static Task<string> Login()
         {
