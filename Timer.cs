@@ -7,7 +7,7 @@ namespace RedditPoster
     {
         public async static Task Start()
         {
-            Thread.Sleep((1000 * 60) * 12);
+            Thread.Sleep((1000 * 60) * 11);
         }
     }
 }

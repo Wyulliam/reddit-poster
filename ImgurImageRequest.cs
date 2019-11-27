@@ -10,6 +10,11 @@
 
     public class ImgurImageResponse
     {
+        public ImgurImageResponseData Data { get; set; }
+    }
+
+    public class ImgurImageResponseData
+    {
         public string Link { get; set; }
     }
 }

@@ -34,8 +34,11 @@ namespace RedditPoster
 
                     var response = await client.SendAsync(request, HttpCompletionOption.ResponseContentRead,
                         new CancellationToken());
-                    var uploadedImage = JsonConvert.DeserializeObject<ImgurImageResponse>(await response.Content.ReadAsStringAsync());
+                    var content = await response.Content.ReadAsStringAsync();
+                    var uploadedImage = JsonConvert.DeserializeObject<ImgurImageResponse>(content);
                     
+                    Console.WriteLine($"Uploaded image to Imgur: {uploadedImage.Data.Link}");
+
                     return uploadedImage;
                 }
             }
